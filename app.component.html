@@ -1,0 +1,100 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <h1 style="text-align:center;font-weight: bold !important;text-decoration: underline;margin:20px 20px 40px 40px">
+    Assignment Form</h1>
+  <div class="container" style="text-align:center;">
+    <div class="row">
+      <span class="col" style="margin:20px 20px 20px 20px">
+        <label for="userName" class="form-label" style="font-weight: bold !important;">Username</label>
+        <input type="username" class="form-control" id="userName" formControlName="username" placeholder="name123">
+      </span>
+      <span class="col" style="margin:20px 20px 20px 20px">
+        <label for="firstName" class="form-label" style="font-weight: bold !important;">First Name</label>
+        <input type="firstname" class="form-control" id="firstName" formControlName="firstname" placeholder="name">
+      </span>
+      <span class="col" style="margin:20px 20px 20px 20px">
+        <label for="lastName" class="form-label" style="font-weight: bold !important;">Last Name</label>
+        <input type="lastname" class="form-control" id="lastName" formControlName="lastname" placeholder="name">
+      </span>
+    </div>
+  </div>
+  <div class="container" style="text-align:center;" style="text-align:center;">
+    <div class="row" style="margin:20px 20px 20px 20px">
+      <span class="col">
+        <label for="email" class="form-label" style="font-weight: bold !important;">Email
+          address</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+      </span>
+      <span class="col" style="margin:20px 20px 20px 20px">
+        <label for="mobileNumber" class="form-label" style="font-weight: bold !important;">Mobile Number</label>
+        <input type="number" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+          placeholder="1234567890">
+      </span>
+      <span class="col" style="margin:20px 20px 20px 20px">
+        <label for="address" class="form-label" style="font-weight: bold !important;">Address</label>
+        <input type="Address" class="form-control" formControlName="address" id="address">
+      </span>
+    </div>
+  </div>
+
+  <!-- ROW 3 -->
+  <div class="container" style="text-align:center;" style="text-align:center;">
+    <div class="row" style="margin:20px 20px 20px 20px">
+      <div class="col" style="margin:20px 20px 20px 20px">
+        <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold !important;">Position</label>
+        <div class="radio" *ngFor="let position of positions">
+          <label>
+            <input type="radio" value="position">{{ position}}
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+    <h4>Add numbers</h4>
+    <button class="btn btn-default" type="button" style="text-align:center;" (click)="onAddNumber()">Add</button>
+    <div fromArrayName="addNumbers" *ngFor="let addnumber of signupForm.get('addNumbers').controls;let i=index">
+      <p></p>
+      <div class="form-group">
+        <input type="number" class="form-control" [formControlName]="i">
+        <p></p>
+      </div>
+    </div>
+
+    <!-- <div class="col" style="margin:20px 20px 30px 20px">
+        <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold !important;">Teams</label>
+        <div class="form-check p-0">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label p-0" for="flexCheckDefault">
+            Barca -->
+    <!-- </label>
+        </div>
+        <div class="form-check p-0">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label p-0" for="flexCheckDefault"> -->
+    <!-- RealM
+          </label>
+        </div>
+        <div class="form-check p-0">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label p-0" for="flexCheckDefault">
+            ManU
+          </label>
+        </div>
+      </div> -->
+
+    <!-- <div class="col" style="margin-bottom: 40px;">
+        <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold !important;">Age Group</label>
+        <select class="form-select text-secondary" id="exampleFormControlInput1" name="age_group">
+          <option value="" hidden disabled selected>Choose age group?</option>
+          <option value="16-18 years">16-18 years</option>
+          <option value="18-24 years">18-24 years</option>
+          <option value="24-28 years">24-28 years</option>
+          <option value="28-32 years">28-32 years</option>
+        </select>
+      </div> -->
+  </div>
+  <!-- SUBMIT BUTTON -->
+  <div class="col-12" style="text-align:center;margin: 20px;">
+    <button class="btn btn-primary" type="submit" style="margin-right: 30px;">Submit</button>
+  </div>
+</form>
